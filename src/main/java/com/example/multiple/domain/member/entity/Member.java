@@ -20,4 +20,8 @@ public class Member {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer seq;
 	private String id;
+
+	public Member(String id) {
+		this.id = id;
+	}
 }
