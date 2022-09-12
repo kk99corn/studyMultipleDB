@@ -51,15 +51,11 @@ public class OrderDataSourceConfig {
 	private String validationQuery;
 
 	@Bean
-//	@ConfigurationProperties("spring.datasource.order")
+	@ConfigurationProperties("spring.datasource.order")
 	public DataSource orderDataSource() {
 		// Commons-dbcp2 DataSource 설정
 		BasicDataSource dataSource = DataSourceBuilder.create()
 				.type(BasicDataSource.class)
-				.driverClassName("com.mysql.cj.jdbc.Driver")
-				.url("jdbc:mysql://localhost:3307/dborder")
-				.username("root")
-				.password("1234")
 				.build();
 
 		// dbcp2 설정
