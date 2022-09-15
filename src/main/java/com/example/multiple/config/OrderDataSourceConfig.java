@@ -34,22 +34,6 @@ public class OrderDataSourceConfig {
 	@Value("${spring.jpa.properties.hibernate.format_sql}")
 	private Boolean formatSql;
 
-	// dbcp2 설정 정보
-	@Value("${spring.datasource.dbcp2.initial-size}")
-	private Integer initialSize;
-	@Value("${spring.datasource.dbcp2.max-idle}")
-	private Integer maxIdle;
-	@Value("${spring.datasource.dbcp2.min-idle}")
-	private Integer minIdle;
-	@Value("${spring.datasource.dbcp2.max-total}")
-	private Integer maxTotal;
-	@Value("${spring.datasource.dbcp2.max-wait-millis}")
-	private Integer maxWaitMillis;
-	@Value("${spring.datasource.dbcp2.remove-abandoned-timeout}")
-	private Integer removeAbandonedTimeout;
-	@Value("${spring.datasource.dbcp2.validation-query}")
-	private String validationQuery;
-
 	@Bean
 	@ConfigurationProperties("spring.datasource.order")
 	public DataSource orderDataSource() {
@@ -57,15 +41,6 @@ public class OrderDataSourceConfig {
 		BasicDataSource dataSource = DataSourceBuilder.create()
 				.type(BasicDataSource.class)
 				.build();
-
-		// dbcp2 설정
-		dataSource.setInitialSize(initialSize);
-		dataSource.setMaxIdle(maxIdle);
-		dataSource.setMinIdle(minIdle);
-		dataSource.setMaxTotal(maxTotal);
-		dataSource.setMaxWaitMillis(maxWaitMillis);
-		dataSource.setRemoveAbandonedTimeout(removeAbandonedTimeout);
-		dataSource.setValidationQuery(validationQuery);
 
 		return dataSource;
 	}
