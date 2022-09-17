@@ -1,7 +1,6 @@
 package com.example.multiple.domain.member.service;
 
 import com.example.multiple.domain.member.dto.MemberDto;
-import com.example.multiple.domain.member.entity.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
